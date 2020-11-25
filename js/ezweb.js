@@ -100,3 +100,92 @@ $("#sendMsgBtn").click(function ()
         // dataType: "Default"
     });
 });
+
+
+/* ------------------------------------------------- Distance mouse move cards. ------------------------------------------------- */
+function calculateDistance(elem, mouseX, mouseY)
+{
+    let leftX   = elem.offset().left;
+    let topY    = elem.offset().top;
+    let rightX  = leftX + elem.width();
+    let bottomY = topY  + elem.height();
+
+    let closestXDist;
+    let closestYDist;
+
+    /* Check if mouse is inside card. */
+    if (mouseX >= leftX && mouseX <= rightX &&
+        mouseY >= topY  && mouseY <= bottomY)
+    {
+        return -1;
+    }
+
+    /* Direct vertical or horizontal distance. */
+    if (mouseX >= leftX && mouseX <= rightX)
+    {
+        let yDist1 = Math.abs(mouseY - topY);
+        let yDist2 = Math.abs(mouseY - bottomY);
+
+        if (yDist1 < yDist2)
+        {
+            return yDist1;
+        }
+        else
+        {
+            return yDist2;
+        }
+    }
+    if (mouseY >= topY && mouseY <= bottomY)
+    {
+        let xDist1 = Math.abs(mouseX - leftX);
+        let xDist2 = Math.abs(mouseX - rightX);
+
+        if (xDist1 < xDist2)
+        {
+            return xDist1;
+        }
+        else
+        {
+            return xDist2;
+        }
+    }
+
+    /* Calculate distance to corners of card. */
+    let xDistLeft   = Math.abs(mouseX - leftX);
+    let xDistRight  = Math.abs(mouseX - rightX);
+    let yDistTop    = Math.abs(mouseY - topY);
+    let yDistBottom = Math.abs(mouseY - bottomY);
+
+    closestXDist = xDistLeft < xDistRight  ? xDistLeft : xDistRight;
+    closestYDist = yDistTop  < yDistBottom ? yDistTop  : yDistBottom;
+
+    return Math.floor(
+        Math.sqrt(
+            Math.pow(closestXDist, 2) + // A^2
+            Math.pow(closestYDist, 2)   // B^2
+        )
+    );
+};
+
+
+$(document).mousemove(function(e)
+{
+    let mX                  = e.pageX;
+    let mY                  = e.pageY;
+    let distanceCardBasic   = calculateDistance($("#cardBasic"),   mX, mY);
+    let distanceCardPremium = calculateDistance($("#cardPremium"), mX, mY);
+    let distanceCardPro     = calculateDistance($("#cardPro"),     mX, mY);
+
+    /* Move physical image. */
+    let cardWidth  = $("#cardBasic").width();
+    let cardHeight = $("#cardBasic").height();
+
+    $("#basicMouse").css("left", $("#cardBasic").offset().left + ((cardWidth  >> 1) + (cardWidth  >> 2)));
+    $("#basicMouse").css("top",  $("#cardBasic").offset().top  + ((cardHeight >> 1) + (cardHeight >> 2)));
+
+    $("#premiumMouse").css("left", $("#cardPremium").offset().left + ((cardWidth  >> 1) + (cardWidth  >> 2)));
+    $("#premiumMouse").css("top",  $("#cardPremium").offset().top  + ((cardHeight >> 1) + (cardHeight >> 2)));
+
+    $("#proMouse").css("left", $("#cardPro").offset().left + ((cardWidth  >> 1) + (cardWidth  >> 2)));
+    $("#proMouse").css("top",  $("#cardPro").offset().top  + ((cardHeight >> 1) + (cardHeight >> 2)));
+});

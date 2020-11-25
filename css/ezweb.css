@@ -114,15 +114,15 @@ p {
 /* --------------------------------------------------------------------------------- Classes --------------------------------------------------------------------------------- */
 
 #oldPhoto1Top {
-    content: url("../img/testillufoto1.png");
+    content: url("../img/EZCARDS/EzBasicCard.png");
 }
 
 #oldPhoto2Top {
-    content: url("../img/testillufoto2.png");
+    content: url("../img/EZCARDS/EzPremiumCard.png");
 }
 
 #oldPhoto3Top {
-    content: url("../img/testillufoto3.png");
+    content: url("../img/EZCARDS/EzProCard.png");
 }
 
 .oldPhotoTop {
@@ -159,6 +159,16 @@ p {
 
 #cardPro:hover #oldPhoto3Top {
     opacity: 0;
+}
+
+/* Mouse movement and hover. */
+#basicMouse, #premiumMouse, #proMouse {
+    position: absolute;
+    z-index: 1;
+    top: -10%;
+    left: -10%;
+    width: 5%;
+    max-width: 60px;
 }
 
 .belowShadow {
