@@ -170,22 +170,53 @@ function calculateDistance(elem, mouseX, mouseY)
 
 $(document).mousemove(function(e)
 {
-    let mX                  = e.pageX;
-    let mY                  = e.pageY;
-    let distanceCardBasic   = calculateDistance($("#cardBasic"),   mX, mY);
-    let distanceCardPremium = calculateDistance($("#cardPremium"), mX, mY);
-    let distanceCardPro     = calculateDistance($("#cardPro"),     mX, mY);
+    let mX                = e.pageX;
+    let mY                = e.pageY;
+    let cardBasicJQuery   = $("#cardBasic");
+    let cardPremiumJQuery = $("#cardPremium");
+    let cardProJQuery     = $("#cardPro");
 
     /* Move physical image. */
-    let cardWidth  = $("#cardBasic").width();
-    let cardHeight = $("#cardBasic").height();
+    let cardWidth  = cardBasicJQuery.width();
+    let cardHeight = cardBasicJQuery.height();
 
-    $("#basicMouse").css("left", $("#cardBasic").offset().left + ((cardWidth  >> 1) + (cardWidth  >> 2)));
-    $("#basicMouse").css("top",  $("#cardBasic").offset().top  + ((cardHeight >> 1) + (cardHeight >> 2)));
+    if (mY >= $("#cardTabBorder").offset().top && mY <= ($("#cardTabBorder").offset().top + $("#cardTabBorder").height()))
+    {
+        let maxDist              = cardBasicJQuery.offset().top - $("#cardTabBorder").offset().top;
+        let mouseInCardMinHeight = (cardHeight >> 1);
+        let mouseInCardMaxHeight = (mouseInCardMinHeight + (cardHeight >> 2));
+        let mouseInCardDist      = mouseInCardMaxHeight - mouseInCardMinHeight;
 
-    $("#premiumMouse").css("left", $("#cardPremium").offset().left + ((cardWidth  >> 1) + (cardWidth  >> 2)));
-    $("#premiumMouse").css("top",  $("#cardPremium").offset().top  + ((cardHeight >> 1) + (cardHeight >> 2)));
+        /* Height to set = distance * (totalCardMove / maxDist) */
+        let distanceCardBasic   = calculateDistance(cardBasicJQuery,   mX, mY);
+        let distanceCardPremium = calculateDistance(cardPremiumJQuery, mX, mY);
+        let distanceCardPro     = calculateDistance(cardProJQuery,     mX, mY);
 
-    $("#proMouse").css("left", $("#cardPro").offset().left + ((cardWidth  >> 1) + (cardWidth  >> 2)));
-    $("#proMouse").css("top",  $("#cardPro").offset().top  + ((cardHeight >> 1) + (cardHeight >> 2)));
+        let basicY   = (distanceCardBasic   / maxDist) * mouseInCardDist;
+        let premiumY = (distanceCardPremium / maxDist) * mouseInCardDist;
+        let proY     = (distanceCardPro     / maxDist) * mouseInCardDist;
+
+        basicY   = basicY   > mouseInCardDist ? mouseInCardDist : basicY;
+        premiumY = premiumY > mouseInCardDist ? mouseInCardDist : premiumY;
+        proY     = proY     > mouseInCardDist ? mouseInCardDist : proY;
+
+        /* Pixel proximity virtual mouse. */
+        if (basicY < 15)   { $("#basicMouse img").css("content",   "url(img/EZCARDS/Hand.png)"); } else { $("#basicMouse img").css("content",   "url(img/EZCARDS/Muis.png)"); }
+        if (premiumY < 15) { $("#premiumMouse img").css("content", "url(img/EZCARDS/Hand.png)"); } else { $("#premiumMouse img").css("content", "url(img/EZCARDS/Muis.png)"); }
+        if (proY < 15)     { $("#proMouse img").css("content",     "url(img/EZCARDS/Hand.png)"); } else { $("#proMouse img").css("content",     "url(img/EZCARDS/Muis.png)"); }
+
+        /* If on top. */
+        if (basicY < 0)   { $("#basicMouse").css("opacity",   "0"); } else { $("#basicMouse").css("opacity",   "1"); }
+        if (premiumY < 0) { $("#premiumMouse").css("opacity", "0"); } else { $("#premiumMouse").css("opacity", "1"); }
+        if (proY < 0)     { $("#proMouse").css("opacity",     "0"); } else { $("#proMouse").css("opacity",     "1"); }
+
+        $("#basicMouse").css("left", cardBasicJQuery.offset().left + ((cardWidth  >> 1) + (cardWidth  >> 2)));
+        $("#basicMouse").css("top",  cardBasicJQuery.offset().top  + mouseInCardMinHeight + basicY);
+
+        $("#premiumMouse").css("left", cardPremiumJQuery.offset().left + ((cardWidth  >> 1) + (cardWidth  >> 2)));
+        $("#premiumMouse").css("top",  cardPremiumJQuery.offset().top  + mouseInCardMinHeight + premiumY);
+
+        $("#proMouse").css("left", cardProJQuery.offset().left + ((cardWidth  >> 1) + (cardWidth  >> 2)));
+        $("#proMouse").css("top",  cardProJQuery.offset().top  + mouseInCardMinHeight + proY);
+    }
 });
