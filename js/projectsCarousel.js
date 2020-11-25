@@ -1,7 +1,8 @@
 /* ------------------------------------------------- Load carousel ------------------------------------------------- */
 let carouselItems = [
                         {"carouselImagePath": "Logo_Wit.png", "carouselLink": "https://globalearthfood.eu/"},
-                        {"carouselImagePath": "", "carouselLink": ""}
+                        {"carouselImagePath": "PraatjesEnPlaatjesLogo.png", "carouselLink": false}
+                        
                     ];
 
 
