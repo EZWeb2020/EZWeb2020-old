@@ -1,0 +1,514 @@
+/*
+    Imported CSS, i.e. footers, buttons, animations should go in DIFFERENT files and then
+    be loaded into the HTML document at the bottom.
+
+    Keep each type of selector within their own group and in alphabetical order.
+    If media queries are necessary, add a new group (------- Group name (-------).
+*/
+
+/* Bug fix */
+
+body:after {
+    display: none;
+    content: url("../img/chris/basic.png") url("../img/chris/premium.png");
+}
+
+/* body::after {
+    content: url("../img/chris/premium.png");
+}
+body::after {
+    content: url("../img/chris/pro.png");
+} */
+
+/* ------------------------------------------------------ Eriks lekkere fonts ------------------------------------------------------ */
+
+@font-face {
+    font-family: proximanovalight;
+    src: url("fonts/Proxima Nova Alt Light.otf");
+}
+
+@font-face {
+    font-family: proximanovaregular;
+    src: url("fonts/ProximaNova-Regular.otf");
+}
+
+@font-face {
+    font-family: proximanovabold;
+    src: url("fonts/Proxima Nova Bold.otf");
+}
+
+@font-face {
+    font-family: proximanovaextrabold;
+    src: url("fonts/Proxima Nova Extrabold.otf")
+}
+
+@font-face {
+    font-family: SailecBlack;
+    src: url("fonts/SailecBlack.ttf")
+}
+
+@font-face {
+    font-family: SailecBold;
+    src: url("fonts/SailecBold.ttf")
+}
+
+@font-face {
+    font-family: SailecMedium;
+    src: url("fonts/SailecMedium.ttf")
+}
+
+/* --------------------------------------------------------------------------------- Global variables --------------------------------------------------------------------------------- */
+
+:root {
+    --primary-bg-color: #CAE7EA;
+    --secondary-bg-color: white;
+}
+
+/* --------------------------------------------------------------------------------- Elements --------------------------------------------------------------------------------- */
+
+body {
+    background: white;
+}
+
+h1 {
+    font-family: SailecMedium;
+    color: black;
+}
+
+h2 {
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    font-size: 22px;
+}
+
+.primaryHorizontalTab {
+    background-color: var(--primary-bg-color);
+    text-align: center;
+    display: table;
+    min-height: 80vh;
+    width: 100%;
+}
+.secondaryHorizontalTab {
+    background-color: var(--secondary-bg-color);
+    text-align: center;
+    display: table;
+    width: 100%;
+    min-height: 80vh;
+}
+
+.table-cell {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.solidBorder {
+    border-top: 3px solid #CAE7EA;
+}
+
+p {
+    font-family: proximanovalight;
+    font-size: 14px;
+}
+
+/* --------------------------------------------------------------------------------- Classes --------------------------------------------------------------------------------- */
+
+#oldPhoto1Top {
+    content: url("../img/testillufoto1.png");
+}
+
+#oldPhoto2Top {
+    content: url("../img/testillufoto2.png");
+}
+
+#oldPhoto3Top {
+    content: url("../img/testillufoto3.png");
+}
+
+.oldPhotoTop {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition-duration: 1s;
+    z-index: 0;
+}
+
+.oldPhotoBottom {
+    z-index: -1;
+}
+
+#oldPhoto1Bottom {
+    content: url("../img/chris/basic.png");
+}
+
+#oldPhoto2Bottom {
+    content: url("../img/chris/premium.png");
+}
+
+#oldPhoto3Bottom {
+    content: url("../img/chris/pro.png");
+}
+
+#cardBasic:hover #oldPhoto1Top {
+    opacity: 0;
+}
+
+#cardPremium:hover #oldPhoto2Top {
+    opacity: 0;
+}
+
+#cardPro:hover #oldPhoto3Top {
+    opacity: 0;
+}
+
+.belowShadow {
+    /* background-color: rgb(110, 110, 110); */
+    z-index: 2;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.flex-container {
+    background-color: black;
+    display: inline-flex;
+    flex-direction: row;
+    /* flex-wrap: wrap; */
+    justify-content: space-between;
+    /* align-items: center; */
+}
+
+.moveUpOnHover {
+    opacity: 0;
+    /* transition-duration: 0.2s; */
+}
+
+.shadowHoverContainer {
+    position: relative;
+}
+
+.Slogan {
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+}
+
+.flex-container1 {
+    display: inline-flex;
+    flex-direction: row;
+    text-align: center;
+}
+
+/* --------------------------------------------------------------------------------- IDs --------------------------------------------------------------------------------- */
+
+/* --------------------------------------------------------------------------------- Pseudo Classes --------------------------------------------------------------------------------- */
+
+/* .card {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 360px;
+    height: 400px;
+    background: #000;
+} */
+
+.card .image {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.card .image img {
+    width: 100%;
+    transition: .5s;
+}
+
+.card:hover .image img {
+    opacity: .5;
+    transform: translateX(30%);
+    /*100%*/
+}
+
+.card .details {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 70%;
+    /*100%*/
+    height: 100%;
+    background: #d4eef0;
+    transition: .5s;
+    transform-origin: left;
+    transform: perspective(2000px) rotateY(-90deg);
+}
+
+.card:hover .details {
+    transform: perspective(2000px) rotateY(0deg);
+}
+
+.card .details .center {
+    padding: 20px;
+    text-align: center;
+    /* background: #fff; */
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.card .details .center h1 {
+    margin: 0;
+    padding: 0;
+    line-height: 20px;
+    font-size: 30px;
+    text-transform: uppercase;
+}
+
+.card .details .center h1 span {
+    font-size: 14px;
+    color: #262626;
+}
+
+.card .details .center p {
+    margin: 10px 0;
+    padding: 0;
+    color: #262626;
+}
+
+.card .details .center ul {
+    margin: 10px auto 0;
+    padding: 0;
+    display: table;
+}
+
+.card .details .center ul li {
+    list-style: none;
+    margin: 0 5px;
+    float: left;
+}
+
+.card .details .center ul li a {
+    display: block;
+    background: #262626;
+    color: #fff;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    transform: .5s;
+}
+
+.card .details .center ul li a:hover {
+    background: #ff3636;
+}
+
+.card {
+    border: none;
+}
+
+/* test */
+
+.button {
+    position: sticky
+}
+
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:300,400,800);
+*, *:before, *:after {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font: 300 1em/1.5 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
+    text-decoration: none;
+}
+
+section.container {
+    min-width: 500px;
+    margin: 10% auto;
+    text-align: center;
+}
+
+a:hover {
+    border-bottom: 1px solid #CAE7EA;
+}
+
+h1 {
+    font-size: 2em;
+    padding: 20px 0;
+}
+
+p {
+    font-size: .75em;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    padding: 20px 0;
+}
+
+button:hover {
+    cursor: pointer
+}
+
+button {
+    background: transparent;
+    outline: none;
+    position: relative;
+    border: 2px solid #CAE7EA;
+    padding: 15px 50px;
+    overflow: hidden;
+}
+
+/*button:before (attr data-hover)*/
+
+button:hover:before {
+    opacity: 1;
+    transform: translate(0, 0);
+}
+
+button:before {
+    content: attr(data-hover);
+    position: absolute;
+    top: 1.1em;
+    left: 0;
+    width: 100%;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-weight: 800;
+    font-size: .8em;
+    opacity: 0;
+    transform: translate(-100%, 0);
+    transition: all .3s ease-in-out;
+}
+
+/*button div (button text before hover)*/
+
+button:hover div {
+    opacity: 0;
+    transform: translate(100%, 0)
+}
+
+button div {
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-weight: 800;
+    font-size: .8em;
+    transition: all .3s ease-in-out;
+}
+
+/* contact form */
+
+@import url(https://fonts.googleapis.com/css?family=Montserrat:400,700);
+form {
+    max-width: 420px;
+    margin: 50px auto;
+}
+
+.feedback-input {
+    /* color: rgb(204, 193, 193); */
+    color: black;
+    font-family: Helvetica, Arial, sans-serif;
+    font-weight: 500;
+    font-size: 18px;
+    border-radius: 5px;
+    line-height: 22px;
+    background-color: transparent;
+    border: 2px solid #000000;
+    transition: all 0.3s;
+    padding: 13px;
+    margin-bottom: 15px;
+    width: 100%;
+    box-sizing: border-box;
+    outline: 0;
+}
+
+.feedback-input:focus {
+    border: 2px solid #000000;
+}
+
+textarea {
+    height: 150px;
+    line-height: 150%;
+    resize: vertical;
+}
+
+[type="submit"] {
+    font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+    width: 100%;
+    background: #000000;
+    border-radius: 5px;
+    border: 0;
+    cursor: pointer;
+    color: white;
+    font-size: 24px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    transition: all 0.3s;
+    margin-top: -4px;
+    font-weight: 700;
+}
+
+[type="submit"]:hover {
+    background: #CAE7EA;
+    color: black;
+}
+
+.form {
+    max-width: 420px;
+    margin: 50px auto;
+}
+
+/*test*/
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Float four columns side by side */
+
+.column {
+    width: 25%;
+    padding: 0 10px;
+}
+
+/* Remove extra left and right margins, due to padding */
+
+.row {
+    width: 100%;
+    justify-content: center;
+}
+
+/* Clear floats after the columns */
+
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* Responsive columns */
+
+@media screen and (max-width: 600px) {
+    .column {
+        width: 100%;
+        display: block;
+        margin-bottom: 20px;
+    }
+}
+
+/* Style the counter cards */
+
+.staffCard {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    padding: 16px;
+    text-align: center;
+    background-color: #f1f1f1;
+    min-height: 300px;
+}
