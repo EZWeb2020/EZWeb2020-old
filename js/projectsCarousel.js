@@ -1,6 +1,7 @@
 /* ------------------------------------------------- Load carousel ------------------------------------------------- */
 let carouselItems = [
-                        {"carouselImagePath": "Logo_Wit.png", "carouselLink": "https://globalearthfood.eu/"}
+                        {"carouselImagePath": "Logo_Wit.png", "carouselLink": "https://globalearthfood.eu/"},
+                        {"carouselImagePath": "", "carouselLink": ""}
                     ];
 
 
@@ -19,7 +20,10 @@ function loadCarousel()
     {
         $("#carouselItem" + i).click(function ()
         {
-            window.open(carouselItems[i].carouselLink);
+            if (carouselItems[i].carouselLink)
+            {
+                window.open(carouselItems[i].carouselLink);
+            }
         });
         $("#carouselItem" + i).hover(function ()
         {
