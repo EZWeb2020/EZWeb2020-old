@@ -1,0 +1,211 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>EZ Web Services</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Tangerine">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="js/preloader.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/modal.css">
+    <link rel="stylesheet" type="text/css" href="css/ezweb.css">
+    <link rel="stylesheet" type="text/css" href="css/projectsCarousel.css">
+</head>
+
+<body>
+    <div class="modalBar" id="leftBar"></div>
+    <div class="modalBar" id="rightBar"></div>
+    <div class="modalBar" id="topBar"></div>
+    <div class="modalBar" id="bottomBar"></div>
+
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+        <!-- Modal content -->
+        <div class="modal-content">
+            <span class="close" style="text-align: end;">&times;</span>
+            <hr style="border-style: solid; border-bottom-color: black; border-bottom-width: 2px;">
+            <div id="modalContent"></div>
+        </div>
+    </div>
+
+    <div id="content" style="text-align: center;">
+        <div class="secondaryHorizontalTab">
+            <div class="table-cell">
+                <img src="img/Logo_Tekengebied 1.png" style="max-width: 100%; 
+                max-height: 200px; margin: 0 auto;" alt="logo">
+            </div>
+        </div>
+
+        <!-- <hr class="solidBorder"> -->
+
+        <div class="primaryHorizontalTab">
+            <div class="table-cell">
+                <h1 style="font-size: 30px;">Klanten aanspreken? Wij maken het EZ.
+                </h1>
+                <p>Jouw klanten zijn onze klanten.</p>
+                <p>No nonsense internetbureau met eigenwijze specialisten voor het sterkste
+                    resultaat.</p>
+
+                <div style="display: flex; gap: 90px; justify-content: center;">
+                    <div class="flex-container">
+                        <div id="cardBasic" class="card">
+                            <div class="image">
+                                <img class="oldPhotoBottom" id="oldPhoto1Bottom" />
+                                <img class="oldPhotoTop" id="oldPhoto1Top" />
+                            </div>
+                            <div class="details">
+                                <div class="center">
+                                    <h1 style="color: black; font-weight: bold;">€500<br><br><span
+                                            style="font-family: proximanovaregular">voor uw complete informatieve
+                                            website</span></h1><br>
+                                    <div class="premium-beschrijving">
+                                        <p>1 Website mockup</p>
+                                        <p>3 Logo's</p>
+                                        <p>Responsive design</p>
+                                        <p>Huisstijl</p>
+                                        <p>HTTPS-beveiliging</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="flex-container">
+                        <div id="cardPremium" class="card">
+                            <div class="image">
+                                <img class="oldPhotoBottom" id="oldPhoto2Bottom" />
+                                <img class="oldPhotoTop" id="oldPhoto2Top" />
+                            </div>
+                            <div class="details">
+                                <div class="center">
+                                    <h1 style="color: black; font-weight: bold;">€750<br><br><span
+                                            style="font-family: proximanovaregular">voor uw complete interactieve
+                                            website</span></h1><br>
+                                    <div class="premium-beschrijving">
+                                        <p>Complete website van BASIC</p>
+                                        <p>6 Logo's</p>
+                                        <p>Eigen nieuwsbrief</p>
+                                        <p>SEO-optimalisering</p>
+                                        <p>Ingerichte WordPress CMS</p>
+                                        <p>Hosting opgezet</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex-container">
+                        <div id="cardPro" class="card">
+                            <div class="image">
+                                <img class="oldPhotoBottom" id="oldPhoto3Bottom" />
+                                <img class="oldPhotoTop" id="oldPhoto3Top" />
+                            </div>
+                            <div class="details">
+                                <div class="center">
+                                    <h1 style="color: black; font-weight: bold;">€1000<br><br><span
+                                            style="font-family: proximanovaregular">voor uw complete interactieve
+                                            website</span></h1><br>
+                                    <div class="pro-beschrijving">
+                                        <p>Complete website van PREMIUM</p>
+                                        <p>Gepersonaliseerde CMS</p>
+                                        <p>Ingerichte database</p>
+                                        <p>Foutmelding pagina's</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- contactopneembutton -->
+        <!-- <button data-hover="Neem contact op" id="contactBtn">
+            <div>Interesse?</div>
+        </button> -->
+
+
+        <!-- <hr class="solidBorder">
+
+        Contact -->
+
+        <div class="secondaryHorizontalTab">
+            <div class="table-cell">
+                <h1 style="font-size: 40px;">Onze projecten</h1>
+                <br>
+                <br>
+                <!-- <h2>Projects</h2> -->
+                <div class="container carouselContainer">
+                    <div class="carousel" id="carouselContainer">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="primaryHorizontalTab">
+            <div class="table-cell">
+                <!-- contactform -->
+                <h1 style="color:black; font-size: 40px;">Kunnen wij jou van dienst zijn?</h1>
+                <div class="form">
+                    <input id="nameInput" name="name" type="text" class="feedback-input" placeholder="Name" />
+                    <input id="emailInput" name="email" type="text" class="feedback-input" placeholder="Email" />
+                    <textarea id="commentInput" name="text" class="feedback-input" placeholder="Comment"></textarea>
+                    <input id="sendMsgBtn" type="submit" value="Verstuur" />
+                </div>
+            </div>
+        </div>
+
+
+        <div class="secondaryHorizontalTab">
+            <div class="table-cell">
+                <h1>STAFF</h1>
+                <div class="row">
+                    <div class="column">
+                        <div class="staffCard">
+                            <h3 style="color:black; font-size:20px; font-weight: bold;">Erik Rugebregt</h3>
+                            <p style="color:black; font-size:20px; font-weight: bold; margin-bottom: 0;">Klantrelaties
+                            </p>
+                            <p style="color:black; font-size:20px; font-weight: bold; margin-bottom: 0;">Planner</p>
+                            <p style="color:black; font-size:20px; font-weight: bold; margin-bottom: 0;">Ontwerper</p>
+                        </div>
+                    </div>
+
+                    <div class="column">
+                        <div class="staffCard">
+                            <h3 style="color:black; font-size:20px; font-weight: bold;">Christopher Chan Sho Ving</h3>
+                            <p style="color:black; font-size:20px; font-weight: bold; margin-bottom: 0;">Developer</p>
+                            <p style="color:black; font-size:20px; font-weight: bold; margin-bottom: 0;">Student</p>
+                            <p style="color:black; font-size:20px; font-weight: bold; margin-bottom: 0;">Tester</p>
+                        </div>
+                    </div>
+
+                    <div class="column">
+                        <div class="staffCard">
+                            <h3 style="color:black; font-size:20px; font-weight: bold;">Dustin Stokman</h3>
+                            <p style="color:black; font-size:20px; font-weight: bold;">Communicatief Adviseur/leerling
+                                programmeur</p>
+                            <p style="color:black; font-size:20px; font-weight: bold;">Starcraft 2 professional</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Dustin: namen, telefoonnummers, functies, etc.  -->
+
+        <script type="text/javascript" src="js/jquery-3.5.1.min.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+            integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+            crossorigin="anonymous"></script>
+        <script type="text/javascript" src="js/bootstrap.min.js"></script>
+        <script src="js/ezweb.js"></script>
+        <script src="js/projectsCarousel.js"></script>
+</body>
+
+</html>
