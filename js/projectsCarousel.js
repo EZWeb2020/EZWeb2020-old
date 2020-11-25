@@ -21,7 +21,10 @@ function loadCarousel()
     {
         $("#carouselItem" + i).click(function ()
         {
-            window.open(carouselItems[i].carouselLink);
+            if (carouselItems[i].carouselLink)
+            {
+                window.open(carouselItems[i].carouselLink);
+            }
         });
         $("#carouselItem" + i).hover(function ()
         {
