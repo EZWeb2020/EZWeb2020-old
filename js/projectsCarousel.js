@@ -44,21 +44,23 @@ let carousel     = $(".carousel");
 let currdeg      = 0;
 let turnFunction = null;
 
+rotate(-1);
 
-$(".carouselContainer").hover(
-function ()
-{
-    rotate(-1);
-},
-function ()
-{
-    clearInterval(turnFunction);
-});
-$(".carouselContainer").click(
-function ()
-{
-    clearInterval(turnFunction);
-});
+
+// $(".carouselContainer").hover(
+// function ()
+// {
+//     rotate(-1);
+// },
+// function ()
+// {
+//     clearInterval(turnFunction);
+// });
+// $(".carouselContainer").click(
+// function ()
+// {
+//     clearInterval(turnFunction);
+// });
 
 
 function rotate(direction)
@@ -67,11 +69,11 @@ function rotate(direction)
     {
         if (direction == -1)
         {
-            currdeg -= 2;
+            currdeg -= 1;
         }
         if (direction == 1)
         {
-            currdeg += 2;
+            currdeg += 1;
         }
         carousel.css({
             "-webkit-transform": "rotateY(" + currdeg + "deg)",
@@ -79,5 +81,5 @@ function rotate(direction)
             "-o-transform": "rotateY(" + currdeg + "deg)",
             transform: "rotateY(" + currdeg + "deg)"
         });
-    }, 50);
+    }, 100);
 }

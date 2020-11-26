@@ -86,7 +86,7 @@ h2 {
     background-color: var(--primary-bg-color);
     text-align: center;
     display: table;
-    min-height: 80vh;
+    height: 80vh;
     width: 100%;
 }
 .secondaryHorizontalTab {
