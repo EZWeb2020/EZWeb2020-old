@@ -531,7 +531,7 @@ body {
 }
 
 @media screen and (max-width: 600px) {
-    #DesktopVersion {
+    #content {
      display: none;
     }
     #MobileVersion {
