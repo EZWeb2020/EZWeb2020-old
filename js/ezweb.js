@@ -102,6 +102,16 @@ $("#sendMsgBtn").click(function ()
 });
 
 
+$("#commentInput").hover(function ()
+{
+    this.style.height = "350px";
+},
+function ()
+{
+    this.style.height = "150px";
+});
+
+
 /* ------------------------------------------------- Distance mouse move cards. ------------------------------------------------- */
 function calculateDistance(elem, mouseX, mouseY)
 {
