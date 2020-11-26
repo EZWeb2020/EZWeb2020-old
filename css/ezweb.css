@@ -523,3 +523,18 @@ body {
     background-color: #CAE7EA;
     min-height: 300px;
 }
+
+/* Mobile Version */
+
+#MobileVersion {
+    display: none;
+}
+
+@media screen and (max-width: 600px) {
+    #DesktopVersion {
+     display: none;
+    }
+    #MobileVersion {
+      display: block;
+    }
+  }
