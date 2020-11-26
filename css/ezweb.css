@@ -556,4 +556,8 @@ body {
         text-align: center;
         background-color: var(--primary-bg-color);
     }
+    .feedback-input {
+        background-color: var(--primary-bg-color);
+        font-size: 12px;
+    }
 }
