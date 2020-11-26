@@ -80,7 +80,7 @@ $("#sendMsgBtn").click(function ()
 {
     let msgString =
     `
-        Naam: ${$("#nameInput").val()} - E-mail: ${$("#emailInput").val()} - Bericht: ${$("#commentInput").val()}
+        Pakket: ${$("#selectPackage").val()} - Naam: ${$("#nameInput").val()} - E-mail: ${$("#emailInput").val()} - Bericht: ${$("#commentInput").val()}
     `;
 
     $("#nameInput").val("");
@@ -161,6 +161,11 @@ function ()
 {
     this.style.height = "150px";
 });
+
+
+$("#setBasicInContact").click(  function () { $("#selectPackage").val("Basic"); } );
+$("#setPremiumInContact").click(function () { $("#selectPackage").val("Premium"); } );
+$("#setProInContact").click(    function () { $("#selectPackage").val("Pro"); } );
 
 
 /* ------------------------------------------------- Distance mouse move cards. ------------------------------------------------- */

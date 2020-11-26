@@ -65,7 +65,7 @@
                         <img class="oldPhotoBottom" id="oldPhoto1Bottom" />
                         <img class="oldPhotoTop" id="oldPhoto1Top" />
                     </div>
-                    <div class="details">
+                    <a class="details" href="#contactPage" id="setBasicInContact">
                         <div class="center">
                             <h1 style="color: black; font-weight: bold;">€500<br><br><span
                                     style="font-family: proximanovaregular">voor uw complete informatieve
@@ -78,14 +78,14 @@
                                 <p>HTTPS-beveiliging</p>
                             </div>
                         </div>
-                    </div>
+                    </a>
                 </div>
                 <div id="cardPremium" class="card">
                     <div class="image">
                         <img class="oldPhotoBottom" id="oldPhoto2Bottom" />
                         <img class="oldPhotoTop" id="oldPhoto2Top" />
                     </div>
-                    <div class="details">
+                    <a class="details" href="#contactPage" id="setPremiumInContact">
                         <div class="center">
                             <h1 style="color: black; font-weight: bold;">€750<br><br><span
                                     style="font-family: proximanovaregular">voor uw complete
@@ -100,14 +100,14 @@
                                 <p>Hosting opgezet</p>
                             </div>
                         </div>
-                    </div>
+                    </a>
                 </div>
                 <div id="cardPro" class="card">
                     <div class="image">
                         <img class="oldPhotoBottom" id="oldPhoto3Bottom" />
                         <img class="oldPhotoTop" id="oldPhoto3Top" />
                     </div>
-                    <div class="details">
+                    <a class="details" href="#contactPage" id="setProInContact">
                         <div class="center">
                             <h1 style="color: black; font-weight: bold;">€1000<br><br><span
                                     style="font-family: proximanovaregular">voor uw complete
@@ -120,7 +120,7 @@
                                 <p>Foutmelding pagina's</p>
                             </div>
                         </div>
-                    </div>
+                    </a>
                 </div>
             </div>
         </div>
@@ -141,7 +141,7 @@
             </div>
         </div>
 
-        <div class="primaryHorizontalTab">
+        <div class="primaryHorizontalTab" id="contactPage">
             <div style="height: 33%; display: flex; justify-content: center; align-items: center;">
                 <!-- contactform -->
                 <h1 style="color:black; font-family: SailecBold; font-size: 40px;">Kunnen wij jou van dienst
@@ -149,6 +149,17 @@
                 </h1>
             </div>
             <div class="form">
+                <select id="selectPackage">
+                    <option value="Basic">
+                        Ik heb interesse in EZ Basic
+                    </option>
+                    <option value="Premium">
+                        Ik heb interesse in EZ Premium
+                    </option>
+                    <option value="Pro">
+                        Ik heb interesse in EZ Pro
+                    </option>
+                </select>
                 <input id="nameInput" name="name" type="text" class="feedback-input" placeholder="Name" />
                 <input id="emailInput" name="email" type="text" class="feedback-input" placeholder="Email" />
                 <textarea id="commentInput" name="text" class="feedback-input" placeholder="Comment"></textarea>
@@ -270,9 +281,7 @@
                 <textarea id="commentInputMobile" name="text" class="feedback-input" placeholder="Bericht"></textarea>
                 <button id="sendMsgBtnMobile" class="btn btn-7 btn-7a icon-envelope">
                     <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="20px" height="20px"
-                        viewBox="0 0 512 512"
-                        style="transform: translate(0px, -2px);"
-                        id="envelopeIcon">
+                        viewBox="0 0 512 512" style="transform: translate(0px, -2px);" id="envelopeIcon">
                         <title></title>
                         <g id="icomoon-ignore">
                         </g>
