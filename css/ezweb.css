@@ -560,4 +560,16 @@ body {
         background-color: var(--primary-bg-color);
         font-size: 12px;
     }
+    #sendMsgBtnMobile {
+        width: 100%;
+        border-radius: 5px;
+        background-color: black;
+        color: white;
+        font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+        font-weight: bold;
+        fill: white;
+    }
+    #verstuurBtn {
+        font-weight: bold;
+    }
 }

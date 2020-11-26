@@ -102,6 +102,57 @@ $("#sendMsgBtn").click(function ()
 });
 
 
+/**
+ * Also add send animation to button click.
+ */
+$("#sendMsgBtnMobile").click(async function ()
+{
+    let msgString =
+    `
+        Naam: ${$("#nameInputMobile").val()} - E-mail: ${$("#emailInputMobile").val()} - Bericht: ${$("#commentInputMobile").val()}
+    `;
+
+    let svgEnvelope     = $("#envelopeIcon");
+    let verstuurBtnHTML = $("#verstuurBtn");
+
+    $({xPosition: 0}).animate({xPosition: 600},
+    {
+        duration: 1000,
+        easing: 'linear',
+        step: function ()
+        {
+            if (this.xPosition >= 500)
+            {
+                svgEnvelope.css({transform: "translate(0px, -2px)"});
+                verstuurBtnHTML.css("visibility", "visible");
+            }
+            else
+            {
+                svgEnvelope.css({transform: 'translate(' + this.xPosition + 'px, -2px)'});
+                verstuurBtnHTML.css("visibility", "hidden");
+            }
+        }
+    });
+
+    $("#nameInputMobile").val("");
+    $("#emailInputMobile").val("");
+    $("#commentInputMobile").val("");
+
+    $.ajax({
+        type: "POST",
+        url: "https://evening-plains-72758.herokuapp.com/forwardToTelegramGC",
+        data: {
+            message: msgString
+        },
+        success: function (resp)
+        {
+            console.log(resp);
+        }
+        // dataType: "Default"
+    });
+});
+
+
 $("#commentInput").hover(function ()
 {
     this.style.height = "350px";
