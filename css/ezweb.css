@@ -57,6 +57,11 @@ body::after {
     src: url("fonts/SailecMedium.ttf")
 }
 
+@font-face {
+    font-family: Lemontuesday;
+    src: url("fonts/Lemon\ Tuesday.otf")
+}
+
 /* --------------------------------------------------------------------------------- Global variables --------------------------------------------------------------------------------- */
 
 :root {
