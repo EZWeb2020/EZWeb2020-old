@@ -89,7 +89,7 @@ $("#sendMsgBtn").click(function ()
 
     $.ajax({
         type: "POST",
-        url: "https://evening-plains-72758.herokuapp.com/forwardToTelegramGC",
+        url: "https://firsttestappheroku.herokuapp.com/forwardToTelegramGC",
         data: {
             message: msgString
         },
@@ -140,7 +140,7 @@ $("#sendMsgBtnMobile").click(async function ()
 
     $.ajax({
         type: "POST",
-        url: "https://evening-plains-72758.herokuapp.com/forwardToTelegramGC",
+        url: "https://firsttestappheroku.herokuapp.com/forwardToTelegramGC",
         data: {
             message: msgString
         },
