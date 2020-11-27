@@ -278,10 +278,38 @@ $(document).mousemove(function(e)
         if (premiumY < 15) { $("#premiumMouse img").css("content", "url(img/EZCARDS/Hand.png)"); } else { $("#premiumMouse img").css("content", "url(img/EZCARDS/Muis.png)"); }
         if (proY < 15)     { $("#proMouse img").css("content",     "url(img/EZCARDS/Hand.png)"); } else { $("#proMouse img").css("content",     "url(img/EZCARDS/Muis.png)"); }
 
-        /* If on top. */
-        if (basicY < 0)   { $("#basicMouse").css("opacity",   "0"); } else { $("#basicMouse").css("opacity",   "1"); }
-        if (premiumY < 0) { $("#premiumMouse").css("opacity", "0"); } else { $("#premiumMouse").css("opacity", "1"); }
-        if (proY < 0)     { $("#proMouse").css("opacity",     "0"); } else { $("#proMouse").css("opacity",     "1"); }
+        /* Filter to only show closest distance mouse, the others will be invisible. */
+        let shortestDist = Math.min(basicY, premiumY, proY);
+        switch (shortestDist)
+        {
+            case (basicY):
+                $("#basicMouse").css("opacity",   "1");
+                $("#premiumMouse").css("opacity", "0");
+                $("#proMouse").css("opacity",     "0");
+
+                /* If on top. */
+                if (basicY < 0) { $("#basicMouse").css("opacity", "0"); } else { $("#basicMouse").css("opacity", "1"); }
+
+                break;
+            case (premiumY):
+                $("#basicMouse").css("opacity",   "0");
+                $("#premiumMouse").css("opacity", "1");
+                $("#proMouse").css("opacity",     "0");
+
+                /* If on top. */
+                if (premiumY < 0) { $("#premiumMouse").css("opacity", "0"); } else { $("#premiumMouse").css("opacity", "1"); }
+
+                break;
+            case (proY):
+                $("#basicMouse").css("opacity",   "0");
+                $("#premiumMouse").css("opacity", "0");
+                $("#proMouse").css("opacity",     "1");
+
+                /* If on top. */
+                if (proY < 0) { $("#proMouse").css("opacity", "0"); } else { $("#proMouse").css("opacity", "1"); }
+
+                break;
+        }
 
         $("#basicMouse").css("left", cardBasicJQuery.offset().left + ((cardWidth  >> 1) + (cardWidth  >> 2)));
         $("#basicMouse").css("top",  cardBasicJQuery.offset().top  + mouseInCardMinHeight + basicY);
