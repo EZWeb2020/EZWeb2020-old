@@ -80,9 +80,10 @@ $("#sendMsgBtn").click(function ()
 {
     let msgString =
     `
-        Pakket: ${$("#selectPackage").val()} - Naam: ${$("#nameInput").val()} - E-mail: ${$("#emailInput").val()} - Bericht: ${$("#commentInput").val()}
+        Pakket: ${$("#subjectInput").val()} - Naam: ${$("#nameInput").val()} - E-mail: ${$("#emailInput").val()} - Bericht: ${$("#commentInput").val()}
     `;
 
+    $("#subjectInput").val("");
     $("#nameInput").val("");
     $("#emailInput").val("");
     $("#commentInput").val("");
@@ -155,17 +156,23 @@ $("#sendMsgBtnMobile").click(async function ()
 
 $("#commentInput").hover(function ()
 {
-    this.style.height = "350px";
+    if (!$("#commentInput").val())
+    {
+        $("#bottomContactInputs").css("height", "70%");
+    }
 },
 function ()
 {
-    this.style.height = "150px";
+    if (!$("#commentInput").val())
+    {
+        $("#bottomContactInputs").css("height", "50%");
+    }
 });
 
 
-$("#setBasicInContact").click(  function () { $("#selectPackage").val("Basic"); } );
-$("#setPremiumInContact").click(function () { $("#selectPackage").val("Premium"); } );
-$("#setProInContact").click(    function () { $("#selectPackage").val("Pro"); } );
+$("#setBasicInContact").click(  function () { $("#subjectInput").val("EZ Basic"); } );
+$("#setPremiumInContact").click(function () { $("#subjectInput").val("EZ Premium"); } );
+$("#setProInContact").click(    function () { $("#subjectInput").val("EZ Pro"); } );
 
 
 /* ------------------------------------------------- Distance mouse move cards. ------------------------------------------------- */
