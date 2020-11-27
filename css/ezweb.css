@@ -579,7 +579,7 @@ background: linear-gradient(180deg, rgba(202,231,234,1) 0%, rgba(202,231,234,1) 
         padding-bottom: 0;
         padding-top: 0;
     }
-    .premium-beschrijving, .premium-beschrijving, .pro-beschrijving {
+    .basic-beschrijving, .premium-beschrijving, .pro-beschrijving {
         font-size: 12px;
     }
     .mobileBlock {
