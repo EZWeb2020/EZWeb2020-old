@@ -605,4 +605,7 @@ background: linear-gradient(180deg, rgba(202,231,234,1) 0%, rgba(202,231,234,1) 
     #verstuurBtn {
         font-weight: bold;
     }
+    h1 {
+        font-size: 1.5em;
+    }
 }
