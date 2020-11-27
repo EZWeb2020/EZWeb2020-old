@@ -555,7 +555,7 @@ body {
     padding: 16px;
     text-align: center;
     background: rgb(255,255,255);
-    background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(202,231,234,1) 18%, rgba(202,231,234,1) 82%, rgba(255,255,255,1) 100%);
+    background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(202,231,234,1) 25%, rgba(202,231,234,1) 75%, rgba(255,255,255,1) 100%);
     min-height: 300px;
 }
 
