@@ -452,7 +452,7 @@ form {
 }
 
 textarea {
-    height: 150px;
+    height: 10vh;
     line-height: 150%;
     resize: vertical;
 }

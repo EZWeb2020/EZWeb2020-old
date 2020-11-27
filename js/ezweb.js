@@ -155,11 +155,17 @@ $("#sendMsgBtnMobile").click(async function ()
 
 $("#commentInput").hover(function ()
 {
-    this.style.height = "350px";
+    if (!$("#commentInput").val())
+    {
+        this.style.height = "13vh";
+    }
 },
 function ()
 {
-    this.style.height = "150px";
+    if (!$("#commentInput").val())
+    {
+        this.style.height = "10vh";
+    }
 });
 
 
