@@ -551,10 +551,11 @@ body {
 /* Style the counter cards */
 
 .staffCard {
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); */
     padding: 16px;
     text-align: center;
-    background-color: #CAE7EA;
+    background: rgb(255,255,255);
+    background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(202,231,234,1) 18%, rgba(202,231,234,1) 82%, rgba(255,255,255,1) 100%);
     min-height: 300px;
 }
 
