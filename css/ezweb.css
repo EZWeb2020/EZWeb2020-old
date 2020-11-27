@@ -441,7 +441,8 @@ form {
     border: 2px solid #000000;
     transition: all 0.3s;
     padding: 13px;
-    margin-bottom: 15px;
+    margin-bottom: 1%;
+    height: 30%;
     width: 100%;
     box-sizing: border-box;
     outline: 0;
@@ -452,9 +453,30 @@ form {
 }
 
 textarea {
-    height: 10vh;
     line-height: 150%;
     resize: vertical;
+}
+
+#commentInput {
+    margin: 0;
+    display: block;
+    height: 70%;
+}
+
+#sendMsgBtn {
+    max-height: 30%;
+    height: 50px;
+    display: inline-block;
+    padding: 0;
+}
+
+#bottomContactInputs {
+    height: 50%;
+    transition-duration: 0.4s;
+}
+#topContactInputs {
+    height: 30%; /* Make height equal to max height of other contacts. */
+    transition-duration: 0.4s;
 }
 
 [type="submit"] {
@@ -481,6 +503,7 @@ textarea {
 .form {
     max-width: 420px;
     margin: auto;
+    height: 66%;
 }
 
 /*test*/
